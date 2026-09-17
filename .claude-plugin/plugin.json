@@ -1,0 +1,28 @@
+{
+  "name": "rentprog",
+  "displayName": "RentProg",
+  "version": "1.0.0",
+  "description": "Read-only access to your RentProg rental-fleet data (bookings, clients, cars, schedule, debts, money) for AI agents via MCP, plus five ready-made skills: morning brief, debtors, fleet load, client dossier, period summary.",
+  "author": { "name": "RentProg", "url": "https://rentprog.com" },
+  "homepage": "https://rentprog.com",
+  "repository": "https://github.com/RentProg/rentprog-claude-plugin",
+  "license": "MIT",
+  "keywords": ["rentprog", "car-rental", "mcp", "fleet", "bookings"],
+  "mcpServers": "./.mcp.json",
+  "userConfig": {
+    "api_token": {
+      "type": "string",
+      "title": "RentProg personal agent key",
+      "description": "Issued in RentProg → Profile → “AI agent keys”. Starts with rpa_. Acts on your behalf and sees exactly what you see.",
+      "sensitive": true,
+      "required": true
+    },
+    "api_url": {
+      "type": "string",
+      "title": "RentProg MCP endpoint",
+      "description": "Default is production (https://rentprog.net/mcp). Staging: https://rentprog.pro/mcp. Local dev stand: http://localhost:3155/mcp.",
+      "default": "https://rentprog.net/mcp",
+      "required": false
+    }
+  }
+}

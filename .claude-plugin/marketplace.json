@@ -1,0 +1,15 @@
+{
+  "name": "rentprog",
+  "owner": { "name": "RentProg", "url": "https://github.com/RentProg" },
+  "plugins": [
+    {
+      "name": "rentprog",
+      "source": "./",
+      "description": "Read-only access to your RentProg rental-fleet data for AI agents via MCP, with five ready-made skills.",
+      "version": "1.0.0",
+      "author": { "name": "RentProg" },
+      "homepage": "https://github.com/RentProg/rentprog-claude-plugin",
+      "license": "MIT"
+    }
+  ]
+}
