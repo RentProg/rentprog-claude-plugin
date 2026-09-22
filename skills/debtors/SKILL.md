@@ -9,6 +9,7 @@ Debt in RentProg is computed per booking: `to_pay = total − paid`. The only so
 
 1. Call `company_reference` first (branches, local today, currency).
 2. `receivables(overdue_days_min: N)` — N from the question ("more than 5 days" → 5; default 0). Add `branch_id` when the user names a branch, `client_id` for one client (find the id with `search_clients(query)` first). For deposits held: `include_deposits: true`.
+   `overdue_days_min` is INCLUSIVE: a booking overdue by exactly N days is returned. For a strict "more than N days" pass `N + 1`.
 3. Use `totals` (whole selection, not the page) for the headline: count, `to_pay_sum`, `deposits_sum`, currency. Then list items sorted as returned (most overdue first): booking number, client `display_name`, car code, `to_pay`, `overdue_days`, `ui_url`.
 4. If the user asks about one client's total, prefer `client_dossier(client_id)` → `money.debt_total`; for line items stay with `receivables(client_id)`.
 

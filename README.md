@@ -60,10 +60,11 @@ In Claude Code you can schedule the brief, e.g. every weekday at 08:30:
 
 | Role in RentProg | Scope | Tools | Fields |
 | --- | --- | --- | --- |
-| superadmin, admin | whole group | all 16 | everything, incl. purchase/sale prices and money report |
+| superadmin | whole group | all 16 | everything, incl. purchase/sale prices and money report |
+| admin | own branch — whole group only with “can change branch” | all 16 | everything, incl. purchase/sale prices and money report |
 | guest | whole group | all 16 | money incl. finance; **no personal data of individual clients** (name, phone, email, birthday, tax id, balance) — legal entities are shown in full |
-| manager | own branch (whole group with “can change branch”) | all except `money_report` | operational booking sums; **no car cost data** |
-| user | own branch | all except `money_report` and the owner-level tools (`fleet_economics`, `staff_performance`, `anomalies`) | operational booking sums; **no car cost data** |
+| manager | own branch — whole group only with “can change branch” | all except `money_report` (15) | operational booking sums; **no car cost data** |
+| user | own branch — whole group only with “can change branch” | all except `money_report` and the owner-level tools `fleet_economics`, `staff_performance`, `anomalies` (12) | operational booking sums; **no car cost data** |
 | partner, agent | — | keys are not issued | — |
 
 CRM leads and tasks are **not** part of this catalog.
@@ -72,7 +73,7 @@ CRM leads and tasks are **not** part of this catalog.
 
 `company_reference` · `get_card` · `search_bookings` · `search_clients` · `search_cars` · `schedule` · `availability_quote` · `receivables` · `fleet_status` · `client_dossier` · `money_report` · `fleet_economics` · `staff_performance` · `anomalies` · `fines` · `recent_changes`
 
-Limits per key: 60 calls/minute, 1000 calls/hour. Windows: schedule and recent_changes ≤ 31 days, money_report and fines ≤ 366 days; pages ≤ 50 items.
+Limits per key: 60 calls/minute, 1000 calls/hour. Windows: `schedule` and `recent_changes` ≤ 31 days; `money_report`, `fines`, `fleet_economics`, `staff_performance` and `anomalies` ≤ 366 days; pages ≤ 50 items.
 
 ## Other MCP clients
 
