@@ -30,8 +30,6 @@ Claude Code asks for two settings:
 | RentProg personal agent key | your `rpa_…` key |
 | RentProg MCP endpoint | leave the default `https://rentprog.net/mcp` |
 
-Other endpoints: staging `https://rentprog.pro/mcp`; a local development stand `http://localhost:3155/mcp`.
-
 Check the connection: `/mcp` should list the `rentprog` server with 12–16 tools (depending on your role), and `company_reference` should return your branches.
 
 ## 3. Use it
