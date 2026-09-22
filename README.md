@@ -32,7 +32,7 @@ Claude Code asks for two settings:
 
 Other endpoints: staging `https://rentprog.pro/mcp`; a local development stand `http://localhost:3155/mcp`.
 
-Check the connection: `/mcp` should list the `rentprog` server with 12–14 tools (depending on your role and whether CRM is enabled), and `company_reference` should return your branches.
+Check the connection: `/mcp` should list the `rentprog` server with 12–16 tools (depending on your role), and `company_reference` should return your branches.
 
 ## 3. Use it
 
@@ -60,16 +60,17 @@ In Claude Code you can schedule the brief, e.g. every weekday at 08:30:
 
 | Role in RentProg | Scope | Tools | Fields |
 | --- | --- | --- | --- |
-| superadmin, admin | whole group | all 14 | everything, incl. purchase/sale prices and money report |
-| guest | whole group | all 14 | money incl. finance; **no personal data of individual clients** (name, phone, email, birthday, tax id, balance) — legal entities are shown in full |
-| manager, user | own branch (whole group with “can change branch”) | all except `money_report` | operational booking sums; **no car cost data** |
+| superadmin, admin | whole group | all 16 | everything, incl. purchase/sale prices and money report |
+| guest | whole group | all 16 | money incl. finance; **no personal data of individual clients** (name, phone, email, birthday, tax id, balance) — legal entities are shown in full |
+| manager | own branch (whole group with “can change branch”) | all except `money_report` | operational booking sums; **no car cost data** |
+| user | own branch | all except `money_report` and the owner-level tools (`fleet_economics`, `staff_performance`, `anomalies`) | operational booking sums; **no car cost data** |
 | partner, agent | — | keys are not issued | — |
 
-`crm_inbox` appears only when the CRM add-on is active and the user has CRM access.
+CRM leads and tasks are **not** part of this catalog.
 
 ## Tools
 
-`company_reference` · `get_card` · `search_bookings` · `search_clients` · `search_cars` · `schedule` · `availability_quote` · `receivables` · `fleet_status` · `client_dossier` · `money_report` · `fines` · `crm_inbox` · `recent_changes`
+`company_reference` · `get_card` · `search_bookings` · `search_clients` · `search_cars` · `schedule` · `availability_quote` · `receivables` · `fleet_status` · `client_dossier` · `money_report` · `fleet_economics` · `staff_performance` · `anomalies` · `fines` · `recent_changes`
 
 Limits per key: 60 calls/minute, 1000 calls/hour. Windows: schedule and recent_changes ≤ 31 days, money_report and fines ≤ 366 days; pages ≤ 50 items.
 
