@@ -5,8 +5,8 @@
     {
       "name": "rentprog",
       "source": "./",
-      "description": "Read-only access to your RentProg rental-fleet data for AI agents via MCP, with five ready-made skills.",
-      "version": "1.0.0",
+      "description": "Your RentProg rental-fleet data and actions for AI agents via MCP — CRM, fleet, money, staff — with per-area access levels and five ready-made skills.",
+      "version": "2.0.0",
       "author": { "name": "RentProg" },
       "homepage": "https://github.com/RentProg/rentprog-claude-plugin",
       "license": "MIT"
