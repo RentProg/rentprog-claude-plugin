@@ -20,9 +20,8 @@
     "api_url": {
       "type": "string",
       "title": "RentProg MCP endpoint",
-      "description": "Leave empty — the default production address is used. Change it only if RentProg support gives you a different one.",
-      "default": "https://rentprog.net/mcp",
-      "required": false
+      "description": "RentProg → Profile → “AI agent keys” shows the MCP server address for your company; it depends on your country and region.",
+      "required": true
     }
   }
 }
