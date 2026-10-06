@@ -143,8 +143,7 @@ immediately, so revoking in RentProg is enough if the file leaks.
 ### ChatGPT
 
 Not supported yet. Custom connectors there accept either no authentication or OAuth 2.1 with
-dynamic client registration — a personal bearer key cannot be entered. OAuth support is planned as
-a separate piece of work, not a setting.
+dynamic client registration — a personal bearer key cannot be entered.
 
 ## Known limitations
 
