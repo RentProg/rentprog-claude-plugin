@@ -12,7 +12,7 @@ The plugin talks to RentProg's MCP endpoint (`POST /mcp`, Streamable HTTP) with 
 
 ## 1. Issue a key
 
-RentProg → your **Profile** → tab **AI agent keys** → **Create key**. Give it a name (e.g. “Claude Code — laptop”), choose the access level for each area (see “Access by area”) and copy the key: it starts with `rpa_` and is shown **once**. Up to 5 active keys per user; each key is valid for one year and can be revoked from the same tab — it stops working immediately.
+RentProg → your **Profile** → tab **AI agent keys** → **Create key**. Give it a name (e.g. “Claude Code — laptop”), choose the access level for each area (see “Access by area”) and copy the key: it starts with `rpa_` and is shown **once**. The same tab shows the MCP server address for your company (it depends on your country and region) — you will need it in step 2. Up to 5 active keys per user; each key is valid for one year and can be revoked from the same tab — it stops working immediately.
 
 Partners and agents (external roles) cannot issue keys.
 
@@ -30,7 +30,7 @@ Claude Code asks for two settings:
 | Setting | Value |
 | --- | --- |
 | RentProg personal agent key | your `rpa_…` key |
-| RentProg MCP endpoint | leave the default `https://rentprog.net/mcp` |
+| RentProg MCP endpoint | the MCP server address shown on the same **AI agent keys** tab — it depends on your company's country and region |
 
 Check the connection: `/mcp` should list the `rentprog` server, `company_reference` should return your branches, and `whoami` shows the key's effective level in each area. The number of tools depends on your role and the key's levels. To set a new key, run `/plugin configure rentprog` and reconnect the server in `/mcp`.
 
@@ -126,7 +126,7 @@ Create `.cursor/mcp.json` in your project (or `~/.cursor/mcp.json` for all proje
 {
   "mcpServers": {
     "rentprog": {
-      "url": "https://rentprog.net/mcp",
+      "url": "MCP_address_from_your_profile",
       "headers": { "Authorization": "Bearer rpa_your_key" }
     }
   }
@@ -143,8 +143,7 @@ immediately, so revoking in RentProg is enough if the file leaks.
 ### ChatGPT
 
 Not supported yet. Custom connectors there accept either no authentication or OAuth 2.1 with
-dynamic client registration — a personal bearer key cannot be entered. OAuth support is planned as
-a separate piece of work, not a setting.
+dynamic client registration — a personal bearer key cannot be entered.
 
 ## Known limitations
 

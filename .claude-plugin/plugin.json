@@ -1,7 +1,7 @@
 {
   "name": "rentprog",
   "displayName": "RentProg",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "Your RentProg rental-fleet data and actions for AI agents via MCP — CRM, fleet and bookings, money, staff — with per-area access levels (read, write with approval, with preview, immediately), plus five ready-made skills: morning brief, debtors, fleet load, client dossier, period summary.",
   "author": { "name": "RentProg", "url": "https://rentprog.com" },
   "homepage": "https://rentprog.com",
@@ -20,9 +20,8 @@
     "api_url": {
       "type": "string",
       "title": "RentProg MCP endpoint",
-      "description": "Leave empty — the default production address is used. Change it only if RentProg support gives you a different one.",
-      "default": "https://rentprog.net/mcp",
-      "required": false
+      "description": "RentProg → Profile → “AI agent keys” shows the MCP server address for your company; it depends on your country and region.",
+      "required": true
     }
   }
 }
