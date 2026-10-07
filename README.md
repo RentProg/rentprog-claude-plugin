@@ -140,10 +140,17 @@ ask in plain language, the tool descriptions are self-sufficient.
 Keep the file out of version control: it contains your key. A revoked key stops working
 immediately, so revoking in RentProg is enough if the file leaks.
 
-### ChatGPT
+### ChatGPT, Codex and other agents with a terminal: the CLI
 
-Not supported yet. Custom connectors there accept either no authentication or OAuth 2.1 with
-dynamic client registration — a personal bearer key cannot be entered.
+Agents that run shell commands but cannot connect an MCP server with a key (ChatGPT agent mode, Codex
+and similar) use the RentProg CLI — [`@rentprog/cli`](https://github.com/RentProg/rentprog-cli). Every tool
+of this plugin is a CLI command, with the same key and the same access.
+
+When you create a key, the key window also shows a **command for agents with a terminal** — it already
+contains the key and the address of your region. Give it to the agent (Node.js 20+ is required; ChatGPT
+has it), then the agent works with `npx -y @rentprog/cli@0 tools`, `… help <tool>` and `… <tool> [flags]`.
+Writes follow the key's levels: a preview is applied only with `--yes`, `--wait` waits for your approval.
+Codex runs commands without network by default — sign in outside its sandbox and allow network for the CLI.
 
 ## Known limitations
 
