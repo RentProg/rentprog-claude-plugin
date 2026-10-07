@@ -140,17 +140,27 @@ ask in plain language, the tool descriptions are self-sufficient.
 Keep the file out of version control: it contains your key. A revoked key stops working
 immediately, so revoking in RentProg is enough if the file leaks.
 
-### ChatGPT, Codex and other agents with a terminal: the CLI
+### Codex
 
-Agents that run shell commands but cannot connect an MCP server with a key (ChatGPT agent mode, Codex
-and similar) use the RentProg CLI — [`@rentprog/cli`](https://github.com/RentProg/rentprog-cli). Every tool
-of this plugin is a CLI command, with the same key and the same access.
+Codex connects the server the same way as Cursor — the key goes in an environment variable:
+
+```bash
+export RENTPROG_API_KEY=rpa_your_key
+codex mcp add rentprog --url <MCP address from your RentProg profile> --bearer-token-env-var RENTPROG_API_KEY
+```
+
+### ChatGPT and other agents with a terminal: the CLI
+
+ChatGPT agent mode cannot connect an MCP server with a key; it — and any agent that runs shell commands —
+uses the RentProg CLI, [`@rentprog/cli`](https://github.com/RentProg/rentprog-cli). Every tool of this
+plugin is a CLI command, with the same key and the same access.
 
 When you create a key, the key window also shows a **command for agents with a terminal** — it already
-contains the key and the address of your region. Give it to the agent (Node.js 20+ is required; ChatGPT
-has it), then the agent works with `npx -y @rentprog/cli@0 tools`, `… help <tool>` and `… <tool> [flags]`.
-Writes follow the key's levels: a preview is applied only with `--yes`, `--wait` waits for your approval.
-Codex runs commands without network by default — sign in outside its sandbox and allow network for the CLI.
+contains the key and the address of your region. Give it to the agent (Node.js 20.18+ is required;
+ChatGPT has it), then the agent works with `npx -y @rentprog/cli@0 tools`, `… help <tool>` and
+`… <tool> [flags]`. Writes follow the key's levels: a preview is applied only after confirmation
+(`--yes`, a `y` answer in a terminal, or the continuation command the CLI prints); `--wait` waits for your
+decision on an approval.
 
 ## Known limitations
 
